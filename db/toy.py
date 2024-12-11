@@ -1,10 +1,10 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 
 @dataclass
 class User:
     page: int = 1
-    bookmarks: set = set()
+    bookmarks: set = field(default_factory=set)
 
 
-users_db: dict[str, User] = {}
+users_db: dict[int, User] = {}
