@@ -1,6 +1,10 @@
-user_dict_template = {
-    "page": 1,
-    "bookmarks": set(),
-}
+from dataclasses import dataclass
 
-users_db = {}
+
+@dataclass
+class User:
+    page: int = 1
+    bookmarks: set = set()
+
+
+users_db: dict[str, User] = {}
