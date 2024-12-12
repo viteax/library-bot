@@ -13,11 +13,6 @@ logger = logging.getLogger(__name__)
 
 
 async def main() -> None:
-    logging.basicConfig(
-        level=logging.INFO,
-        format="{filename}:{lineno} #{levelname:8} [{asctime}] - {name} - {message}",
-        style="{",
-    )
     logger.info("Starting bot")
 
     config: Config = load_config()
@@ -37,4 +32,10 @@ async def main() -> None:
     await dp.start_polling(bot)
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    logging.basicConfig(
+        level=logging.INFO,
+        format="{filename}:{lineno} #{levelname:8} [{asctime}] - {name} - {message}",
+        style="{",
+    )
+    asyncio.run(main())
