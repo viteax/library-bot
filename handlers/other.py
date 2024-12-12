@@ -21,6 +21,11 @@ async def help_cmd(message: Message):
     await message.answer(Lexicon.HELP)
 
 
+@router.message(~IsUserInitialized())
+async def send_not_initialized(message: Message):
+    await message.answer("Вы не авторизованы, авторизуйтесь командой /start")
+
+
 @router.message()
 async def send_echo(message: Message):
     try:
