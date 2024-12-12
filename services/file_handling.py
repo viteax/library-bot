@@ -21,4 +21,4 @@ def prepare_book(path: str) -> None:
         page_no += 1
 
 
-prepare_book("semen.txt")
+prepare_book("book.txt")
