@@ -5,7 +5,7 @@ from lexicon.ru import Lexicon
 from services.file_handling import book
 
 
-def create_bookmarks_keyboard(*args: int) -> InlineKeyboardMarkup:
+def create_bookmarks_keyboard(*bookmarks: int) -> InlineKeyboardMarkup:
     kb_builder = InlineKeyboardBuilder()
     kb_builder.row(
         *[
@@ -13,8 +13,9 @@ def create_bookmarks_keyboard(*args: int) -> InlineKeyboardMarkup:
                 text=f"{button} - {book[button][:100]}",
                 callback_data=str(button),
             )
-            for button in sorted(args)
-        ]
+            for button in sorted(bookmarks)
+        ],
+        width=1,
     )
     kb_builder.row(
         InlineKeyboardButton(text="Редактировать", callback_data="edit_bookmarks"),
@@ -24,7 +25,7 @@ def create_bookmarks_keyboard(*args: int) -> InlineKeyboardMarkup:
     return kb_builder.as_markup()
 
 
-def create_edit_keyboard(*args: int) -> InlineKeyboardMarkup:
+def create_edit_keyboard(*bookmarks: int) -> InlineKeyboardMarkup:
     kb_builder = InlineKeyboardBuilder()
     kb_builder.row(
         *[
@@ -32,8 +33,9 @@ def create_edit_keyboard(*args: int) -> InlineKeyboardMarkup:
                 text=f"{Lexicon.DEL} {button} - {book[button][:100]}",
                 callback_data=f"{button}del",
             )
-            for button in sorted(args)
-        ]
+            for button in sorted(bookmarks)
+        ],
+        width=1,
     )
     kb_builder.row(InlineKeyboardButton(text=Lexicon.CANCEL, callback_data="cancel"))
     return kb_builder.as_markup()
