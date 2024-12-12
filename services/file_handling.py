@@ -1,6 +1,6 @@
 book: dict[int, str] = {}
-PAGE_SIZE = 200
-END_SIGNS = {",", ".", "!", ":", ";", "?"}
+PAGE_SIZE = 1050
+END_SIGNS = {",", ".", "!", ":", ";", "?", "»"}
 
 
 def _get_part_text(text, start, page_size) -> tuple[str, int]:

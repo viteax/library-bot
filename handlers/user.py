@@ -2,7 +2,7 @@ from aiogram import F, Router
 from aiogram.filters import Command
 from aiogram.types import CallbackQuery, Message
 
-from db.toy import User, users_db
+from db.toy import User
 from filters.callback_f import IsDelBookmarkCallbackData, IsDigitCallbackData
 from filters.user_f import IsUserInitialized
 from keyboards.bookmarks_kb import create_bookmarks_keyboard, create_edit_keyboard
