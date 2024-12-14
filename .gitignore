@@ -2,5 +2,4 @@
 .env.example
 
 __pycache__/
-
-pyproject.toml
+.ruff_cache/
