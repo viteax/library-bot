@@ -10,15 +10,15 @@ router = Router()
 
 
 @router.message(CommandStart())
-async def start_cmd(message: Message):
-    await message.answer(Lexicon.START)
+async def start_cmd(message: Message, i18n: Lexicon):
+    await message.answer(i18n.START)
     if message.from_user.id not in users_db:
         users_db[message.from_user.id] = User()
 
 
 @router.message(Command(commands="help"))
-async def help_cmd(message: Message):
-    await message.answer(Lexicon.HELP)
+async def help_cmd(message: Message, i18n: Lexicon):
+    await message.answer(i18n.HELP)
 
 
 @router.message(~IsUserInitialized())

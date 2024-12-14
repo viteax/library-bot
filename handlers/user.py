@@ -69,9 +69,9 @@ async def add_or_del_bookmark(callback: CallbackQuery, user: User):
 
 
 @router.callback_query(F.data == "edit_bookmarks")
-async def edit_bookmarks(callback: CallbackQuery, user: User):
+async def edit_bookmarks(callback: CallbackQuery, user: User, i18n: Lexicon):
     await callback.message.edit_text(
-        text=Lexicon.EDIT_BOOKMARKS, reply_markup=create_edit_keyboard(*user.bookmarks)
+        text=i18n.EDIT_BOOKMARKS, reply_markup=create_edit_keyboard(*user.bookmarks)
     )
 
 
@@ -89,8 +89,8 @@ async def del_bookmark(callback: CallbackQuery, user: User, page_no: int):
 
 
 @router.callback_query(F.data == "cancel")
-async def cancel(callback: CallbackQuery, user: User):
-    await callback.message.edit_text(text=Lexicon.CANCEL_TEXT)
+async def cancel(callback: CallbackQuery, i18n: Lexicon):
+    await callback.message.edit_text(text=i18n.CANCEL_TEXT)
 
 
 @router.callback_query(F.data == "book_limit")
